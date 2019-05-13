@@ -40,7 +40,24 @@ Once NMF has produced a basis matrix _W_ and a mixture matrix _H_ for the extant
 
 ### Getting Set Up
 
-(TODO; Anaconda distro, use pip for dependencies, use iPython3 or a Jupyter notebook to interact with the code.)
+The `nmf_classifier` module requires Python 3.5+ and the following packages:
+
+* `pandas`
+* `sklearn`
+* `scipy`
+* `nimfa`
+
+First, download the .zip archive of this repository or clone it using the command
+
+`git clone https://github.com/jjmccollum/jude-nmf.git`
+
+Then navigate to the py folder and enter the command
+
+`python setup.py install`
+
+Once the package is set up, you can run it from the interactive Python shell of your choice. If you are new to using Python, iPython (https://ipython.org/) and Jupyter Notebook (https://jupyter.org/) are particularly accessible options. Open the shell of your choice in the py directory of this package and then enter the command
+
+`run nmf_classifier.py`
 
 ### Basic Usage
 
