@@ -212,26 +212,6 @@ class NmfClassifier():
 		print('Done in %0.4fs' % (time.time() - t0))
 		return
 
-#Initialize and load an instance of this class:
-print('To get started, type "help()".\n')
- 
-'''
-Prints a help manual for users.
-'''
-def help():
-    manual = '''\nTo initialize the NMF classifer, enter the command nc = NmfClassifier(). The initializer accepts optional parameters related to preprocessing collation data.\n
-For instance, the command nc = NmfClassifer(min_extant=300, min_support=2, use_tfidf=True) will initialize a classifier that will set aside MSS with fewer than 300 extant readings as fragmentary, exclude readings attested by fewer than two MSS (i.e., singular readings), and use Term Frequency-Inverse Document Frequency (TF-IDF) weighting rather than uniform (0-1) weights for readings, which encourages NMF to isolate groups using more exclusive readings.\nThe default settings are min_extant=1, min_support=1, use_tfidf=False.\n\n
-Once the NMF classifier is initialized, the first step is to read in the input collation data file.\n If the name of the file is jude_collation.xlsx and it is located in the data directory parallel to the directory containing this script, then the command to enter will look like nc.read(\'../data/jude_collation.xlsx\').\n Please note that the Excel spreadsheet containing the collation data is expected to have a header row containing MS IDs and a header column containing reading IDs.\n The classifier will read in the collation data from the file, removing rows for readings with too little MS support and splitting the collation matrix into one matrix for MSS with enough extant readings and another for "fragmentary" MSS without enough extant readings.\n\n
-Once the classifier has read in the input data, you can check the first ten rows of the collation matrix with the command nc.extant_collation_df[0:10].\n\n
-To find the best number of clusters to aim for, it is helpful to perform rank estimation.\n To check every possible choice between 2 and 30 clusters, enter the command nc.get_rank_ests(2, 30).\n Be warned that this process will take some time.\n\n
-To print out metrics relevant to rank estimation, enter the command nc.print_rank_ests().\n If you do not supply your own output filename, a default name will be supplied.\n The output will be an Excel spreadsheet.\n\n
-To cluster the collation data into ten groups, enter the command nc.get_nmf_results(10).\n After this completes, you can check the output matrices by calling nc.W_df (for the reading-profile matrix) and nc.H_df (for the profile-MS matrix).\n To print the contents of these matrices and summary statistics for the NMF run to an Excel workbook, enter the command nc.print_nmf_results().\n Optionally, you can supply an output filename; otherwise, a default name will be chosen.\n\n
-Once we have a basis matrix W from an NMF run, we can use it to classify the fragmentary MSS as a post-processing step.\n To do this, enter the command nc.get_fragmentary_nmf_results().\n You can check the mixture matrix H for the fragmentary MSS by calling nc.fragmentary_H_df.\n To print the contents of this matrix to an Excel spreadsheet, enter the command nc.print_fragmentary_nmf_results().\n Optionally, you can supply an output filename; otherwise, a default name will be chosen.\n\n'''
-    print(manual)
-    return
-
-
-
 '''
 def getLsnmfResults(df, min_k, max_k):
     summary_filename = 'C:/Projects/jude_nmf/py/summary.xlsx'
