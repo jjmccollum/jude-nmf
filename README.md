@@ -21,7 +21,7 @@ The Python code maintained in this repository is intended to allow an interested
 ## Technical Details
 
 ### Software and Hardware Specs
-For ease of use, we stored all collation datasets as Microsoft Excel spreadsheets. For all computational work, we used release 3.5 of the Python programming language as part of the Anaconda Distribution (https://www.anaconda.com/distribution/). To read and write data from and to Excel spreadsheets, we used the Python `pandas` package (pandas.pydata.org). For factorization and rank estimation routines, we used `nimfa`, a Python library dedicated to NMF (Marinka Žitnik and Blaž Zupan, "NIMFA: A Python Library for Nonnegative Matrix Factorization," _Journal of Machine Learning Research_ 13 \[2012\], 849–853; this library is open-source and can be downloaded at https://github.com/marinkaz/nimfa). For solving non-negative least-squares systems of equations, we used the SciPy stack of open-source Python modules for scientific computing. (https://scipy.org/).
+For ease of use, we stored all collation datasets as Microsoft Excel spreadsheets. For all computational work, we used release 3.5 of the Python programming language as part of the Anaconda Distribution (https://www.anaconda.com/distribution/). To read and write data from and to Excel spreadsheets, we used the Python PANDAS package (pandas.pydata.org). For factorization and rank estimation routines, we used NIMFA, a Python library dedicated to NMF (Marinka Žitnik and Blaž Zupan, "NIMFA: A Python Library for Nonnegative Matrix Factorization," _Journal of Machine Learning Research_ 13 \[2012\], 849–853; this library is open-source and can be downloaded at https://github.com/marinkaz/nimfa). For solving non-negative least-squares systems of equations, we used the SciPy stack of open-source Python modules for scientific computing. (https://scipy.org/).
 
 Our implementation of NMF was run on a platform with an Intel i7-4770 quad-core processor and 16GB of memory.
 
@@ -40,7 +40,7 @@ Once NMF has produced a basis matrix _W_ and a mixture matrix _H_ for the extant
 
 ### Getting Set Up
 
-The `nmf_classifier` module requires Python 3.5+ and the following packages:
+The `nmf_classifier` module runs in Python 3.5+ and requires the following packages:
 
 * `pandas`
 * `sklearn`
@@ -61,7 +61,7 @@ Once the package is set up, you can run it from the interactive Python shell of 
 
 ### Basic Usage
 
-To initialize the NMF classifer on the Python command line, enter the command `nc = NmfClassifier()`. The initializer accepts optional parameters related to preprocessing collation data. For instance, the command `nc = NmfClassifer(min_extant=300, min_support=2, use_tfidf=True)` will initialize a classifier that will set aside MSS with fewer than 300 extant readings as fragmentary, exclude readings attested by fewer than two MSS (i.e., singular readings), and use TF-IDF weighting rather than uniform (0-1) weights for readings. The default settings are `min_extant=1`, `min_support=1`, and `use_tfidf=False`.
+To initialize the NMF classifier on the Python command line, enter the command `nc = NmfClassifier()`. The initializer accepts optional parameters related to preprocessing collation data. For instance, the command `nc = NmfClassifier(min_extant=300, min_support=2, use_tfidf=True)` will initialize a classifier that will set aside MSS with fewer than 300 extant readings as fragmentary, exclude readings attested by fewer than two MSS (i.e., singular readings), and use TF-IDF weighting rather than uniform (0-1) weights for readings. The default settings are `min_extant=1`, `min_support=1`, and `use_tfidf=False`.
 
 Once the NMF classifier is initialized, the first step is to read in the input collation data file. If the name of the file is `jude_collation.xlsx` and it is located in the data directory parallel to the directory containing this script, then the command to enter will look like `nc.read('../data/jude_collation.xlsx')`. The classifier will read in the collation data from the file, removing rows for readings with too little MS support and splitting the collation matrix into one matrix for MSS with enough extant readings and another for "fragmentary" MSS without enough extant readings.
 
