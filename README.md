@@ -1,5 +1,5 @@
 # jude-nmf
-Non-negative matrix factorization applied to Wasserman's collation of the epistle of Jude.
+Non-negative matrix factorization applied to Wasserman's collation of the Epistle of Jude.
 
 ## About the Project
 
