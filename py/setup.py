@@ -11,6 +11,7 @@ setup(
     url='https://github.com/jjmccollum/jude-nmf',
     python_requires='>=3.5',
     install_requires=[
+        'xlrd',
         'pandas',
         'sklearn',
         'scipy',
