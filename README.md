@@ -1,7 +1,7 @@
 # jude-nmf
 Non-negative matrix factorization applied to Wasserman's collation of the Epistle of Jude.
 
-## About the Project
+## About This Project
 
 ### Introduction
 The text-critical practice of grouping manuscripts (MSS) into families or texttypes often faces two obstacles: the methodological question of how exactly to isolate the groups, given the chicken-and-egg relationship between "good" group readings and "good" group manuscripts, and contamination in the manuscript tradition. We introduce _non-negative matrix factorization_ (NMF) as a simple, automated, and efficient solution to both problems. Within minutes, NMF can cluster hundreds of manuscripts and readings simultaneously, producing an output that details potential contamination according to an easy-to-interpret mixture model.
@@ -72,3 +72,7 @@ To find the best number of clusters to aim for, you'll need to perform rank esti
 To cluster the collation data into ten groups, enter the command `nc.get_nmf_results(10)`. After this completes, you can check the output matrices by calling `nc.W_df` (for the reading-profile matrix) or `nc.H_df` (for the profile-MS matrix). To print the contents of these matrices, along with summary statistics for the NMF run, to an Excel workbook, enter the command `nc.print_nmf_results()`. Optionally, you can supply an output filename; otherwise, a default name will be chosen.
 
 Once you have a basis matrix _W_ from an NMF run, you can use it to classify the fragmentary MSS as a post-processing step. To do this, enter the command `nc.get_fragmentary_nmf_results()`. You can check the mixture matrix _H_ for the fragmentary MSS by calling `nc.fragmentary_H_df`. To print the contents of this matrix to an Excel spreadsheet, enter the command `nc.print_fragmentary_nmf_results()`. Optionally, you can supply an output filename; otherwise, a default name will be chosen.
+
+## Citing This Resource
+
+If you wish to reference this work, please cite the associated paper: Joey McCollum, "Biclustering Readings and Manuscripts via Non-negative Matrix Factorization, with Application to the Text of Jude" _AUSS_ 57.1 (2019), 61–89 (available online at https://digitalcommons.andrews.edu/auss/vol57/iss1/6/).
